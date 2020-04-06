@@ -1,0 +1,62 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+
+<title>
+   portifolio - ruby sparks
+</title>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+
+       
+        <div id="wrapper">
+            <h1>Aulas</h1>
+        </div>
+
+        <section class="cards">
+
+
+            {% for item in items %}
+            <div class="card" id="{{item.id}}">
+                 <div class="card_img_conteiner {{ 'featured-wrappe' if item.featured}} ">
+                    <img src="https://img.youtube.com/vi/{{item.id}}/maxresdefault.jpg" alt="Imagem de {{item.title}}">
+                    {% if item.featured %}
+                        <div class="featured">Featured</div>
+                    {% endif %}
+                 </div>
+
+                 <div class="card_conteudo">
+                     <p>{{item.title}}</p>
+                 </div>
+
+                <div class="card_info">
+                     <p>{{item.duration}}</p>
+                     <p class="card-price">{{item.price}}</p>
+                 </div>
+            </div>
+            {% endfor %}
+           
+        </section>
+
+        <div class="modal-overlay">
+            <div class="modal">
+                <a class="close-modal">
+                    <i class="material-icons">
+                        close</i>
+                </a>
+
+                <div class="modal-content">
+                    <iframe src=""  frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <script src="scripts.js"></script>
+        
+      
+{% endblock %}
